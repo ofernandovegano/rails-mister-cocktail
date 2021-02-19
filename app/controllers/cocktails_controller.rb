@@ -1,15 +1,33 @@
+  
 class CocktailsController < ApplicationController
   def index
+    # listagem de todos os cocktails
     @cocktails = Cocktail.all
   end
 
   def show
+    # detalhes de UM cocktail
     @cocktail = Cocktail.find(params[:id])
   end
 
-  def new
+  def create
+    @cocktail = Cocktail.new(cocktail_params)
+
+    if @cocktail.save
+      redirect_to cocktail_path(@cocktail)
+    else
+      render :new
+    end
   end
 
-  def create
+  def new
+    # pagina de formulario para criar um novo cocktail
+    @cocktail = Cocktail.new
+  end
+
+  private
+
+  def cocktail_params
+    params.require(:cocktail).permit(:name)
   end
 end

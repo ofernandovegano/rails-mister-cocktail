@@ -1,11 +1,11 @@
-<h1>Esses são nossos bons drink</h1>
-
-<%= link_to "Crie seu próprio cocktail", new_cocktail_path %>
+<h1>Esse é o drink: <%= @cocktail.name %></h1>
 
 <ul>
-  <% @cocktails.each do |cocktail| %>
+   <% @cocktail.doses.each do |dose| %>
     <li>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      <%= dose.description %> <%= dose.ingredient.name %> <%= link_to "remova essa dose", dose_path(dose), method: :delete %>
     </li>
   <% end %>
 </ul>
+
+<%= link_to "Crie a sua dose!", new_cocktail_dose_path(@cocktail) %>
