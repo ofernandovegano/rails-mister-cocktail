@@ -10,6 +10,8 @@ require 'json'
 url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 results = JSON.parse(open(url).read)
 
+Cocktail.destroy_all
+
 puts 'starting seeds'
 
 results["drinks"].each do |result|
