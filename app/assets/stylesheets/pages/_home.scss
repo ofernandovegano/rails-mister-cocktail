@@ -1,7 +1,8 @@
 // Specific CSS for your home-page
 
 .container {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   width: 85%
   // text-align: center;
 }

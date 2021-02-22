@@ -11,6 +11,7 @@ url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 results = JSON.parse(open(url).read)
 
 Cocktail.destroy_all
+Ingredient.destroy_all
 
 puts 'starting seeds'
 
@@ -18,6 +19,9 @@ results["drinks"].each do |result|
   Ingredient.create(name: result["strIngredient1"])
 end
 
+15.times do
+  Cocktail.create(name: 'test', photo: image_tag('laranja.png'))
+end
 # Ingredient.create(name: "lemon")
 # Ingredient.create(name: "ice")
 # Ingredient.create(name: "mint leaves")
