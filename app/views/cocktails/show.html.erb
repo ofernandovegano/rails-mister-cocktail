@@ -1,5 +1,5 @@
 <h1>Esse é o drink: <%= @cocktail.name %></h1>
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill if @cocktail.photo %>
+<%= cl_image_tag @cocktail.photo.key, height: 500, width: 400, crop: :fill if @cocktail.photo %>
 <ul>
    <% @cocktail.doses.each do |dose| %>
     <li>
@@ -13,3 +13,5 @@
 </ul>
 
 <%= link_to "Crie a sua dose!", new_cocktail_dose_path(@cocktail) %>
+<br>
+<%= link_to 'Voltar ao Index', cocktails_path%>
